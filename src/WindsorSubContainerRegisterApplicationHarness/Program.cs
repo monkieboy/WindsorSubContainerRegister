@@ -1,13 +1,17 @@
 ﻿using System;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
 namespace WindsorSubContainerRegisterApplicationHarness
 {
 	class Program
 	{
-		static void Main(string[] args)
+	    static void Main(string[] args)
 		{
-			Register();
+	        var windsorRegister = new WindsorRegister();
+	        windsorRegister.Register();
+            var m = windsorRegister.WindsorContainer.Resolve<IPrintManager>();
+            m.Initiate();
 			ConsoleKeyInfo key;
 			Console.WriteLine("press 'Q' to quit....");
 			do
@@ -18,11 +22,6 @@ namespace WindsorSubContainerRegisterApplicationHarness
 					break;
 				}
 			} while ( true );
-		}
-
-		private static void Register()
-		{
-			IWindsorContainer windsorContainer = new WindsorContainer();
 		}
 	}
 }

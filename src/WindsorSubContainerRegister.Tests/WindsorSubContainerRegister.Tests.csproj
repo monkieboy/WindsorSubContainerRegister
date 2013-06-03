@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WindsorSubContainerRegisterApplicationHarness\WindsorSubContainerRegisterApplicationHarness.csproj">
+      <Project>{0FB12F2D-60E0-4B4A-AB1C-686BC72D2A0A}</Project>
+      <Name>WindsorSubContainerRegisterApplicationHarness</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WindsorSubContainerRegister\WindsorSubContainerRegister.csproj">
       <Project>{DE23A86B-9CB0-471C-9661-78929D25C730}</Project>
       <Name>WindsorSubContainerRegister</Name>

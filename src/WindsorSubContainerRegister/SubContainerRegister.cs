@@ -1,9 +1,15 @@
-﻿using Castle.Windsor;
+﻿using System;
+using Castle.Windsor;
 
 namespace WindsorSubContainerRegister
 {
-	public class SubContainerRegister
-	{
-		public IWindsorContainer AppContainer { get; set; }
+    public class SubContainerRegister : ISubContainerRegister
+    {
+		public IWindsorContainer AppContainer { get; private set; }
+
+        public void Wrap(IWindsorRegister windsorRegister)
+	    {
+	        AppContainer = windsorRegister.WindsorContainer;
+	    }
 	}
 }
